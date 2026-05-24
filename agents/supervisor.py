@@ -1,9 +1,10 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 from state import ResearchState
-from config import OPENAI_API_KEY, LLM_MODEL
+from config import OPENAI_BASE_URL, OPENAI_API_KEY, LLM_MODEL
 
-llm = ChatOpenAI(model=LLM_MODEL, api_key=OPENAI_API_KEY)
+llm = ChatOpenAI(model=LLM_MODEL, base_url=OPENAI_BASE_URL, api_key=OPENAI_API_KEY)
+
 
 async def supervisor_node(state: ResearchState) -> dict:
     topic = state["topic"]
